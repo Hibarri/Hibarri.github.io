@@ -20,17 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="你这么容易被影响 是算数平均数吗?">
-<meta property="og:type" content="website">
-<meta property="og:title" content="养心殿">
-<meta property="og:url" content="http://example.com/tags/%E6%B1%87%E7%BC%96/index.html">
+  <meta name="description" content="Floyd判圈算法即龟兔赛跑算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="龟兔赛跑算法">
+<meta property="og:url" content="http://example.com/2022/10/17/%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="养心殿">
-<meta property="og:description" content="你这么容易被影响 是算数平均数吗?">
+<meta property="og:description" content="Floyd判圈算法即龟兔赛跑算法">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-17T12:36:13.000Z">
+<meta property="article:modified_time" content="2022-10-17T12:58:48.986Z">
 <meta property="article:author" content="麋鹿不迷路">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/tags/%E6%B1%87%E7%BC%96/">
+<link rel="canonical" href="http://example.com/2022/10/17/%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91%E7%AE%97%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -38,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 汇编 | 养心殿</title>
+  <title>龟兔赛跑算法 | 养心殿</title>
   
 
 
@@ -189,51 +193,90 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">汇编
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="麋鹿不迷路">
+      <meta itemprop="description" content="你这么容易被影响 是算数平均数吗?">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养心殿">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          龟兔赛跑算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-17 20:36:13 / 修改时间：20:58:48" itemprop="dateCreated datePublished" datetime="2022-10-17T20:36:13+08:00">2022-10-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <p><code>Floyd判圈算法</code>即<code>龟兔赛跑算法</code></p>
+<span id="more"></span>
+<p>​    假想「乌龟」和「兔子」在链表上移动，「兔子」跑得快，「乌龟」跑得慢。当「乌龟」和「兔子」从链表上的同一个节点开始移动时，如果该链表中没有环，那么「兔子」将一直处于「乌龟」的前方；如果该链表中有环，那么「兔子」会先于「乌龟」进入环，并且一直在环内移动。等到「乌龟」进入环时，由于「兔子」的速度快，它一定会在某个时刻与乌龟相遇，即套了「乌龟」若干圈。</p>
+<p><code>力扣141.环形链表</code>给你一个链表的头节点<code>head</code>，判断链表中是否有环。若链表中存在环，则返回<code>true</code>，否则返回<code>false</code>。</p>
+<p>解：</p>
+<p>​    定义快慢两个指针，慢指针每次移动一步，快指针每次移动两步。初始时，慢指针位于head处，快指针位于head-&gt;next处。在移动过程中，快指针追上满指针，则有环，否则快指针到达链表尾部，则无环。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	<span class="function"><span class="type">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(head == <span class="literal">nullptr</span> || head-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            ListNode* slow = head;</span><br><span class="line">            ListNode* fast = head-&gt;next;</span><br><span class="line">            <span class="keyword">while</span>(slow!=fase)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(fast==<span class="literal">nullptr</span>||fast-&gt;next==<span class="literal">nullptr</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                </span><br><span class="line">                slow = slow-&gt;next;</span><br><span class="line">                fast = fast-&gt;next-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle/solution/huan-xing-lian-biao-by-leetcode-solution/">https://leetcode.cn/problems/linked-list-cycle/solution/huan-xing-lian-biao-by-leetcode-solution/</a></p>
+</blockquote>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-09-29T19:25:18+08:00"
-              content="2022-09-29">
-          09-29
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag"># 链表</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/29/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" itemprop="url">
-            <span itemprop="name">微机原理</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/05/%E4%BB%8A%E5%A4%A9%E4%B9%9F%E8%A6%81%E7%AC%91%E4%B8%80%E7%AC%91/" rel="prev" title="今天也要笑一笑 ت">
+      <i class="fa fa-chevron-left"></i> 今天也要笑一笑 ت
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
